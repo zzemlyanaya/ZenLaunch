@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Zen Launch</string>
+    
+    <string name="app_mockup">Your custom app</string>
+    <string name="time_mockup">hh:ss</string>
+    <string name="date_mockup">dd/mm/yyyy</string>
+</resources>
