@@ -6,8 +6,9 @@
  *
  */
 
-package ru.zzemlyanaya.zenlaunch
+package ru.zzemlyanaya.zenlaunch.menu
 
-object Consts {
-    const val PREFS_NAME = "ZenLaunchPrefs"
-}
+data class AppInfo(
+    val label: String,
+    val packageName: String
+)

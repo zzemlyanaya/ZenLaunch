@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Eugeniya Zemlyanaya (@zzemlyanaya) on 06.11.20 12:03
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 06.11.20 12:03
+  ~  */
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".settings.SettingsFragment">
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,7 +1,17 @@
+<!--
+  ~ /**
+  ~  * Created by Eugeniya Zemlyanaya (@zzemlyanaya) on 06.11.20 12:03
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 06.11.20 12:03
+  ~  */
+  -->
+
 <resources>
     <string name="app_name">Zen Launch</string>
-    
+
     <string name="app_mockup">Your custom app</string>
     <string name="time_mockup">hh:ss</string>
     <string name="date_mockup">dd/mm/yyyy</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
