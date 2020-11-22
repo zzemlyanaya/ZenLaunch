@@ -1,8 +1,8 @@
 /*
  * *
- *  * Created by Eugeniya Zemlyanaya (@zzemlyanaya) on 06.11.20 12:03
+ *  * Created by Eugeniya Zemlyanaya (@zzemlyanaya) on 22.11.20 19:09
  *  * Copyright (c) 2020 . All rights reserved.
- *  * Last modified 06.11.20 12:03
+ *  * Last modified 22.11.20 19:02
  *
  */
 
@@ -30,8 +30,8 @@ class AppsRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        if(item.label.length > 20)
-            holder.label.text = "${item.label.slice(0..19)}..."
+        if(item.label.length > 16)
+            holder.label.text = "${item.label.slice(0..16)}..."
         else
             holder.label.text = item.label
         holder.itemView.setOnClickListener { onClick(item) }

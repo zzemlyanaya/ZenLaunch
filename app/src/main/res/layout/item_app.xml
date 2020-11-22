@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ /**
-  ~  * Created by Eugeniya Zemlyanaya (@zzemlyanaya) on 06.11.20 12:03
+  ~  * Created by Eugeniya Zemlyanaya (@zzemlyanaya) on 22.11.20 19:09
   ~  * Copyright (c) 2020 . All rights reserved.
-  ~  * Last modified 06.11.20 12:03
+  ~  * Last modified 22.11.20 18:59
   ~  */
   -->
 
@@ -21,7 +21,7 @@
         android:fontFamily="sans-serif-light"
         android:text="@string/app_mockup"
         android:textColor="@color/accentMint"
-        android:textSize="32sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,8 +1,8 @@
 /*
  * *
- *  * Created by Eugeniya Zemlyanaya (@zzemlyanaya) on 06.11.20 12:03
+ *  * Created by Eugeniya Zemlyanaya (@zzemlyanaya) on 22.11.20 19:09
  *  * Copyright (c) 2020 . All rights reserved.
- *  * Last modified 06.11.20 12:03
+ *  * Last modified 22.11.20 19:07
  *
  */
 
@@ -40,6 +40,8 @@ class MenuFragment : Fragment() {
             )
             appList.add(app)
         }
+
+        appList.sortWith(Comparator { o1, o2 -> o1.label.compareTo(o2.label) })
     }
 
     override fun onCreateView(
