@@ -1,9 +1,7 @@
 <!--
-  ~ /**
-  ~  * Created by Eugeniya Zemlyanaya (@zzemlyanaya) on 06.11.20 12:03
-  ~  * Copyright (c) 2020 . All rights reserved.
-  ~  * Last modified 06.11.20 12:03
-  ~  */
+  ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya)
+  ~ Copyright (c) 2021 . All rights reserved.
+  ~ Last modified 11.02.2021, 9:42
   -->
 
 <resources>
@@ -12,6 +10,19 @@
     <string name="app_mockup">Your custom app</string>
     <string name="time_mockup">hh:ss</string>
     <string name="date_mockup">dd/mm/yyyy</string>
+
+    <string name="settings">Settings</string>
+    <string name="edit_font_size">Font size: </string>
+    <string name="font_size_small">Small</string>
+    <string name="font_size_medium">Medium</string>
+    <string name="font_size_Large">Large</string>
+    <string name="set_left_to_right_app">Left-to-right app</string>
+    <string name="set_right_to_left_app">Right-to-left app</string>
+    <string name="about">About</string>
+    <string name="custom_apps">Custom apps: </string>
+    <string name="accent_colour">Accent colour: </string>
+    <string name="mint">mint</string>
+    <string name="red">red</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

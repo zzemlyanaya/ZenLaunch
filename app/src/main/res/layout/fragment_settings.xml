@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya) on $file.created
+  ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya)
   ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified $file.lasModified
+  ~ Last modified 11.02.2021, 9:42
   -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -18,16 +18,95 @@
         android:layout_height="match_parent"
         tools:context=".settings.SettingsFragment">
 
-
         <TextView
-                android:text="Settings will be here"
-                android:layout_width="wrap_content"
+                android:text="@string/edit_font_size"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView"
-                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/editFontSize"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:textColor="@color/white" />
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="24dp"
+                android:textSize="22sp"
+                android:fontFamily="sans-serif-thin"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                android:layout_marginTop="32dp" />
+
+        <TextView
+                android:text="@string/set_left_to_right_app"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/editLtrApp"
+                app:layout_constraintStart_toStartOf="@+id/editFontSize"
+                app:layout_constraintEnd_toEndOf="@+id/editFontSize"
+                android:textSize="22sp"
+                android:fontFamily="sans-serif-thin"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintTop_toBottomOf="@+id/editFontSize"
+                android:layout_marginTop="24dp" />
+
+        <TextView
+                android:text="@string/set_right_to_left_app"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/editRtlApp"
+                app:layout_constraintStart_toStartOf="@+id/editLtrApp"
+                app:layout_constraintEnd_toEndOf="@+id/editLtrApp"
+                android:textSize="22sp"
+                android:fontFamily="sans-serif-thin"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/editLtrApp"
+                android:layout_marginTop="24dp" />
+
+        <TextView
+                android:text="@string/accent_colour"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/editAccentColour"
+                app:layout_constraintStart_toStartOf="@+id/editRtlApp"
+                app:layout_constraintEnd_toEndOf="@+id/editRtlApp"
+                android:textSize="22sp"
+                android:fontFamily="sans-serif-thin"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/editRtlApp"
+                android:layout_marginTop="24dp" />
+
+        <TextView
+                android:text="@string/custom_apps"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/editAppsNumber"
+                app:layout_constraintStart_toStartOf="@+id/editAccentColour"
+                app:layout_constraintEnd_toEndOf="@+id/editAccentColour"
+                android:textSize="22sp"
+                android:fontFamily="sans-serif-thin"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/editAccentColour"
+                android:layout_marginTop="24dp" />
+
+        <TextView
+                android:text="@string/about"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/about"
+                app:layout_constraintStart_toStartOf="@+id/editAppsNumber"
+                app:layout_constraintEnd_toEndOf="@+id/editAppsNumber"
+                android:textSize="22sp"
+                android:fontFamily="sans-serif-thin"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintTop_toBottomOf="@+id/editAppsNumber"
+                android:layout_marginTop="24dp" />
+
+        <TextView
+                android:text="@string/settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="56dp"
+                android:layout_marginStart="32dp"
+                android:textSize="32sp"
+                android:fontFamily="sans-serif" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
