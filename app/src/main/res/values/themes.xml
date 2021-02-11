@@ -1,9 +1,7 @@
 <!--
-  ~ /**
-  ~  * Created by Eugeniya Zemlyanaya (@zzemlyanaya) on 06.11.20 12:03
-  ~  * Copyright (c) 2020 . All rights reserved.
-  ~  * Last modified 06.11.20 12:03
-  ~  */
+  ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya) on $file.created
+  ~ Copyright (c) 2021 . All rights reserved.
+  ~ Last modified $file.lasModified
   -->
 
 <resources>
@@ -12,6 +10,8 @@
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/black</item>
         <item name="colorOnSecondary">@color/white</item>
+
+        <item name="android:textColorPrimary">@color/white</item>
 
         <item name="android:statusBarColor">@color/black</item>
 

@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ /**
-  ~  * Created by Eugeniya Zemlyanaya (@zzemlyanaya) on 06.11.20 12:03
-  ~  * Copyright (c) 2020 . All rights reserved.
-  ~  * Last modified 06.11.20 12:03
-  ~  */
+  ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya) on $file.created
+  ~ Copyright (c) 2021 . All rights reserved.
+  ~ Last modified $file.lasModified
   -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,34 +19,34 @@
         tools:context=".MainActivity">
 
         <TextClock
-            android:id="@+id/textTime"
-            android:format12Hour="hh:mm a"
-            android:format24Hour="HH:mm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/time_mockup"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                android:id="@+id/textTime"
+                android:format12Hour="hh:mm a"
+                android:format24Hour="HH:mm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/time_mockup"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         <TextClock
-            android:id="@+id/textDate"
-            android:format12Hour="dd/MM/yy"
-            android:format24Hour="dd/MM/yy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/date_mockup"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                android:id="@+id/textDate"
+                android:format12Hour="dd/MM/yy"
+                android:format24Hour="dd/MM/yy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/date_mockup"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         <FrameLayout
             android:id="@+id/container"

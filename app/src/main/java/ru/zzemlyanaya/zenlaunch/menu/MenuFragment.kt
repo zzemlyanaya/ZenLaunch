@@ -1,28 +1,35 @@
 /*
- * *
- *  * Created by Eugeniya Zemlyanaya (@zzemlyanaya) on 22.11.20 19:09
- *  * Copyright (c) 2020 . All rights reserved.
- *  * Last modified 22.11.20 19:07
- *
+ * Created by Evgeniya Zemlyanaya (@zzemlyanaya) on $file.created
+ * Copyright (c) 2021 . All rights reserved.
+ * Last modified $file.lasModified
  */
 
 package ru.zzemlyanaya.zenlaunch.menu
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import ru.zzemlyanaya.zenlaunch.R
 import ru.zzemlyanaya.zenlaunch.databinding.FragmentMenuBinding
+import ru.zzemlyanaya.zenlaunch.hideKeyboard
+import ru.zzemlyanaya.zenlaunch.showKeyboard
 
 
 class MenuFragment : Fragment() {
     private val appList = ArrayList<AppInfo>()
+
+    private lateinit var binding: FragmentMenuBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,15 +48,14 @@ class MenuFragment : Fragment() {
             appList.add(app)
         }
 
-        appList.sortWith(Comparator { o1, o2 -> o1.label.compareTo(o2.label) })
+        appList.sortWith { o1, o2 -> o1.label.compareTo(o2.label) }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentMenuBinding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_menu, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_menu, container, false)
 
         with(binding.appsRecyclerView){
             layoutManager = LinearLayoutManager(requireContext())
@@ -58,9 +64,37 @@ class MenuFragment : Fragment() {
                 { openAppDialog(it) },
                 appList.toList()
             )
+            addOnScrollListener(object : RecyclerView.OnScrollListener(){
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    if(!recyclerView.canScrollVertically(-1))
+                        openKeyboard()
+                    super.onScrolled(recyclerView, dx, dy)
+                }
+
+                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                    if (newState != RecyclerView.SCROLL_STATE_IDLE)
+                        closeKeyboard()
+                    super.onScrollStateChanged(recyclerView, newState)
+                }
+            })
         }
 
+        openKeyboard()
+
         return binding.root
+    }
+
+    fun openKeyboard(){
+        if (binding.searchApp.requestFocus()) {
+            this.showKeyboard()
+        }
+    }
+
+    fun closeKeyboard(){
+        if (binding.searchApp.hasFocus()) {
+            binding.searchApp.clearFocus()
+            this.hideKeyboard()
+        }
     }
 
     fun openApp(app: AppInfo){
