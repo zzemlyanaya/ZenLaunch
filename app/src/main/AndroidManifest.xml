@@ -2,7 +2,7 @@
 <!--
   ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya)
   ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified 11.03.2021, 16:11
+  ~ Last modified 11.03.2021, 21:05
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ZenLaunch"
         android:fullBackupContent="@xml/backup_rules">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+                android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.HOME" />

@@ -1,7 +1,7 @@
 /*
  * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
  * Copyright (c) 2021 . All rights reserved.
- * Last modified 11.03.2021, 16:11
+ * Last modified 11.03.2021, 21:05
  */
 
 package ru.zzemlyanaya.zenlaunch.menu
@@ -9,16 +9,26 @@ package ru.zzemlyanaya.zenlaunch.menu
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
+import ru.zzemlyanaya.zenlaunch.App
 import ru.zzemlyanaya.zenlaunch.R
+import java.util.*
+import kotlin.collections.ArrayList
 
 
-class AppsRecyclerViewAdapter(
+open class AppsRecyclerViewAdapter(
     private val onClick: (AppInfo) -> Unit,
     private val onLongClick: ((AppInfo) -> Boolean)?,
     private var values: List<AppInfo>
 ) : RecyclerView.Adapter<AppsRecyclerViewAdapter.ViewHolder>() {
+
+    private val copy = ArrayList<AppInfo>()
+
+    init {
+        copy.addAll(values)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -38,6 +48,22 @@ class AppsRecyclerViewAdapter(
     }
 
     override fun getItemCount(): Int = values.size
+
+    fun filter(query: String) {
+        val query = query.toLowerCase()
+        var result = ArrayList<AppInfo>()
+        if (query.isBlank())
+            result.addAll(copy)
+        else
+            for (app in copy)
+                if (app.label.toLowerCase().contains(query))
+                    result.add(app)
+        (values as ArrayList<AppInfo>).clear()
+        (values as ArrayList<AppInfo>).addAll(result)
+        if (result.size == 1)
+            onClick.invoke(result.first())
+        notifyDataSetChanged()
+    }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val label: AppCompatTextView = view.findViewById(R.id.textAppLabel)

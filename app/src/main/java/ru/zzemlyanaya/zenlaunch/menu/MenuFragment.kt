@@ -1,7 +1,7 @@
 /*
  * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
  * Copyright (c) 2021 . All rights reserved.
- * Last modified 11.03.2021, 16:11
+ * Last modified 11.03.2021, 21:05
  */
 
 package ru.zzemlyanaya.zenlaunch.menu
@@ -12,11 +12,16 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.ArrayAdapter
+import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.os.bundleOf
+import androidx.core.widget.doAfterTextChanged
+import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentResultListener
@@ -89,13 +94,16 @@ class MenuFragment : Fragment() {
 
         openKeyboard()
 
+        binding.searchApp.afterTextChanged {
+            (binding.appsRecyclerView.adapter as AppsRecyclerViewAdapter).filter(it)
+        }
+
         return binding.root
     }
 
     fun openKeyboard(){
-        if (binding.searchApp.requestFocus()) {
+        if (binding.searchApp.hasFocus() || binding.searchApp.requestFocus())
             this.showKeyboard()
-        }
     }
 
     fun closeKeyboard(){
