@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ /**
-  ~  * Created by Eugeniya Zemlyanaya (@zzemlyanaya) on 06.11.20 12:03
-  ~  * Copyright (c) 2020 . All rights reserved.
-  ~  * Last modified 06.11.20 12:03
-  ~  */
+  ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya)
+  ~ Copyright (c) 2021 . All rights reserved.
+  ~ Last modified 11.03.2021, 16:11
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ru.zzemlyanaya.zenlaunch">
 
     <application
+            android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

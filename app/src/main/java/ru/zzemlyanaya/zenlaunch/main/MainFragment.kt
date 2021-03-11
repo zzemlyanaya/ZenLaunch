@@ -1,9 +1,7 @@
 /*
- * *
- *  * Created by Eugeniya Zemlyanaya (@zzemlyanaya) on 06.11.20 12:03
- *  * Copyright (c) 2020 . All rights reserved.
- *  * Last modified 06.11.20 12:03
- *
+ * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
+ * Copyright (c) 2021 . All rights reserved.
+ * Last modified 11.03.2021, 16:11
  */
 
 package ru.zzemlyanaya.zenlaunch.main
@@ -14,19 +12,26 @@ import android.view.GestureDetector.SimpleOnGestureListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import ru.zzemlyanaya.zenlaunch.MainActivity
+import ru.zzemlyanaya.zenlaunch.PrefsConst
 import ru.zzemlyanaya.zenlaunch.R
+import ru.zzemlyanaya.zenlaunch.RESULT
 import ru.zzemlyanaya.zenlaunch.databinding.FragmentMainBinding
+import ru.zzemlyanaya.zenlaunch.menu.AppInfo
+import java.util.stream.IntStream.range
 import kotlin.math.abs
 
 
 class MainFragment : Fragment() {
 
     private lateinit var mGestureDetector: GestureDetector
+    private lateinit var binding: FragmentMainBinding
+
+    private lateinit var customApps: ArrayList<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
+            customApps = it.getStringArrayList(PrefsConst.CUSTOM_APPS) as ArrayList<String>
         }
     }
 
@@ -34,8 +39,7 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentMainBinding =
-                DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
 
         initGestureDetector()
         binding.root.setOnTouchListener { view, motionEvent ->
@@ -43,7 +47,17 @@ class MainFragment : Fragment() {
             mGestureDetector.onTouchEvent(motionEvent)
         }
 
+        setCustomAppsNames()
+        setCustomAppsClick()
+
         return binding.root
+    }
+
+    private fun setCustomAppsNames(){
+        binding.app1Name.text = customApps[0]
+        binding.app2Name.text = customApps[1]
+        binding.app3Name.text = customApps[2]
+        binding.app4Name.text = customApps[3]
     }
 
     private fun initGestureDetector() {
@@ -69,12 +83,12 @@ class MainFragment : Fragment() {
                         return super.onFling(e1, e2, velocityX, velocityY)
 
                     if (e1.x - e2.x > 100 && abs(velocityX) > 200) {
-                        // Fling left
-                        (requireActivity() as MainActivity).showLeftApp()
+                        // Fling to left
+                        (requireActivity() as MainActivity).showRTLApp()
 
                     } else if (e2.x - e1.x > 100 && abs(velocityX) > 200) {
-                        // Fling right
-                        (requireActivity() as MainActivity).showRightApp()
+                        // Fling to right
+                        (requireActivity() as MainActivity).showLTRApp()
 
                     } else if (e2.y - e1.y > 100 && abs(velocityY) > 100){
                         // Fling down
@@ -82,7 +96,7 @@ class MainFragment : Fragment() {
 
                     } else if (e1.y - e2.y > 100 && abs(velocityY) > 100){
                         // Fling up
-                        (requireActivity() as MainActivity).showMenuFragment()
+                        (requireActivity() as MainActivity).showMenuFragment(null)
                     }
 
                     return super.onFling(e1, e2, velocityX, velocityY)
@@ -91,13 +105,54 @@ class MainFragment : Fragment() {
         )
     }
 
+    private fun setCustomAppsClick() {
+        binding.app1Name.setOnClickListener { (requireActivity() as MainActivity).showCustomApp(0) }
+        binding.app2Name.setOnClickListener { (requireActivity() as MainActivity).showCustomApp(1) }
+        binding.app3Name.setOnClickListener { (requireActivity() as MainActivity).showCustomApp(2) }
+        binding.app4Name.setOnClickListener { (requireActivity() as MainActivity).showCustomApp(3) }
+
+        binding.app1Name.setOnLongClickListener {
+            setResultListener(PrefsConst.CUSTOM_APPS, 0)
+            (requireActivity() as MainActivity).showMenuFragment(PrefsConst.CUSTOM_APPS)
+            true
+        }
+        binding.app2Name.setOnLongClickListener {
+            setResultListener(PrefsConst.CUSTOM_APPS, 1)
+            (requireActivity() as MainActivity).showMenuFragment(PrefsConst.CUSTOM_APPS)
+            true
+        }
+        binding.app3Name.setOnLongClickListener {
+            setResultListener(PrefsConst.CUSTOM_APPS, 2)
+            (requireActivity() as MainActivity).showMenuFragment(PrefsConst.CUSTOM_APPS)
+            true
+        }
+        binding.app4Name.setOnLongClickListener {
+            setResultListener(PrefsConst.CUSTOM_APPS, 3)
+            (requireActivity() as MainActivity).showMenuFragment(PrefsConst.CUSTOM_APPS)
+            true
+        }
+    }
+
+    private fun setResultListener(pref: String, id: Int) {
+        parentFragmentManager.setFragmentResultListener(
+            pref,
+            this,
+            { requestKey: String, result: Bundle ->
+                val res = result.get(RESULT)!! as AppInfo
+                (requireActivity() as MainActivity).updateApps(requestKey, res, id)
+                customApps[id] = res.label
+                setCustomAppsNames()
+            }
+        )
+    }
+
     companion object {
 
         @JvmStatic
-        fun newInstance() =
+        fun newInstance(customAppsNames: ArrayList<String>) =
                 MainFragment().apply {
                     arguments = Bundle().apply {
-
+                        putStringArrayList(PrefsConst.CUSTOM_APPS, customAppsNames)
                     }
                 }
     }

@@ -1,7 +1,7 @@
 /*
- * Created by Evgeniya Zemlyanaya (@zzemlyanaya) on $file.created
+ * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
  * Copyright (c) 2021 . All rights reserved.
- * Last modified $file.lasModified
+ * Last modified 11.03.2021, 16:11
  */
 
 package ru.zzemlyanaya.zenlaunch.menu
@@ -16,23 +16,27 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat.getSystemService
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentResultListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.zzemlyanaya.zenlaunch.R
+import ru.zzemlyanaya.zenlaunch.*
 import ru.zzemlyanaya.zenlaunch.databinding.FragmentMenuBinding
-import ru.zzemlyanaya.zenlaunch.hideKeyboard
-import ru.zzemlyanaya.zenlaunch.showKeyboard
 
 
 class MenuFragment : Fragment() {
     private val appList = ArrayList<AppInfo>()
-
     private lateinit var binding: FragmentMenuBinding
+
+    private var requestKey: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        arguments?.let {
+            requestKey = it.getString(REQUEST_KEY)
+        }
 
         val packageManager: PackageManager = requireContext().packageManager
 
@@ -59,11 +63,15 @@ class MenuFragment : Fragment() {
 
         with(binding.appsRecyclerView){
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = AppsRecyclerViewAdapter(
+            adapter =  if(requestKey == null)
+                AppsRecyclerViewAdapter(
                 { openApp(it) },
                 { openAppDialog(it) },
                 appList.toList()
             )
+            else
+                AppsRecyclerViewAdapter( {sendResult(it)}, null, appList.toList() )
+
             addOnScrollListener(object : RecyclerView.OnScrollListener(){
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     if(!recyclerView.canScrollVertically(-1))
@@ -108,13 +116,21 @@ class MenuFragment : Fragment() {
         return true
     }
 
+    private fun sendResult(app: AppInfo) {
+        parentFragmentManager.setFragmentResult(
+            requestKey!!,
+            bundleOf(RESULT to app)
+        )
+        parentFragmentManager.popBackStack()
+    }
+
     companion object {
 
         @JvmStatic
-        fun newInstance() =
+        fun newInstance(requestKey: String?) =
             MenuFragment().apply {
                 arguments = Bundle().apply {
-
+                    putString(REQUEST_KEY, requestKey)
                 }
             }
     }

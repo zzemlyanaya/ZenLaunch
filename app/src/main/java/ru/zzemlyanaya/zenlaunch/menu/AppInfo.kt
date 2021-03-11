@@ -1,14 +1,14 @@
 /*
- * *
- *  * Created by Eugeniya Zemlyanaya (@zzemlyanaya) on 06.11.20 12:03
- *  * Copyright (c) 2020 . All rights reserved.
- *  * Last modified 06.11.20 12:03
- *
+ * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
+ * Copyright (c) 2021 . All rights reserved.
+ * Last modified 11.03.2021, 16:11
  */
 
 package ru.zzemlyanaya.zenlaunch.menu
 
+import java.io.Serializable
+
 data class AppInfo(
-    val label: String,
-    val packageName: String
-)
+    var label: String = "Your custom app",
+    var packageName: String = ""
+) : Serializable

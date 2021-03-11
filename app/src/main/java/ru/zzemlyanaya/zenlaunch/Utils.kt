@@ -1,7 +1,7 @@
 /*
- * Created by Evgeniya Zemlyanaya (@zzemlyanaya) on $file.created
+ * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
  * Copyright (c) 2021 . All rights reserved.
- * Last modified $file.lasModified
+ * Last modified 11.03.2021, 16:11
  */
 
 package ru.zzemlyanaya.zenlaunch
@@ -12,9 +12,15 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 
-object Consts {
-    const val PREFS_NAME = "ZenLaunchPrefs"
+enum class Accents(val id: Int) {
+    MINT(0),
+    FIRE_RED(1)
 }
+
+enum class FontSizes { SMALL, MEDIUM, LARGE }
+
+const val RESULT = "result"
+const val REQUEST_KEY = "request key"
 
 fun Fragment.hideKeyboard() {
     view?.let { requireActivity().hideKeyboard(it) }

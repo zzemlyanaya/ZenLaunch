@@ -1,9 +1,7 @@
 /*
- * *
- *  * Created by Eugeniya Zemlyanaya (@zzemlyanaya) on 22.11.20 19:09
- *  * Copyright (c) 2020 . All rights reserved.
- *  * Last modified 22.11.20 19:02
- *
+ * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
+ * Copyright (c) 2021 . All rights reserved.
+ * Last modified 11.03.2021, 16:11
  */
 
 package ru.zzemlyanaya.zenlaunch.menu
@@ -18,7 +16,7 @@ import ru.zzemlyanaya.zenlaunch.R
 
 class AppsRecyclerViewAdapter(
     private val onClick: (AppInfo) -> Unit,
-    private val onLongClick: (AppInfo) -> Boolean,
+    private val onLongClick: ((AppInfo) -> Boolean)?,
     private var values: List<AppInfo>
 ) : RecyclerView.Adapter<AppsRecyclerViewAdapter.ViewHolder>() {
 
@@ -35,7 +33,8 @@ class AppsRecyclerViewAdapter(
         else
             holder.label.text = item.label
         holder.itemView.setOnClickListener { onClick(item) }
-        holder.itemView.setOnLongClickListener { onLongClick(item) }
+        if (onLongClick != null)
+            holder.itemView.setOnLongClickListener { onLongClick.invoke(item)}
     }
 
     override fun getItemCount(): Int = values.size
