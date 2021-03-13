@@ -1,7 +1,7 @@
 <!--
   ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya)
   ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified 11.03.2021, 21:05
+  ~ Last modified 13.03.2021, 10:46
   -->
 
 <resources>
@@ -24,5 +24,11 @@
         <item name="android:textSize">32sp</item>
         <item name="android:editTextColor">@color/white</item>
         <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="AlertDialogStyle" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="colorAccent">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:background">@color/black</item>
     </style>
 </resources>

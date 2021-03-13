@@ -1,7 +1,7 @@
 /*
  * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
  * Copyright (c) 2021 . All rights reserved.
- * Last modified 13.03.2021, 10:35
+ * Last modified 13.03.2021, 10:46
  */
 
 package ru.zzemlyanaya.zenlaunch.menu
@@ -111,7 +111,7 @@ class MenuFragment : Fragment() {
     }
 
     fun openAppDialog(app: AppInfo): Boolean{
-        val builder = AlertDialog.Builder(layoutInflater.context)
+        val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle)
         builder.setTitle(app.label)
             .setPositiveButton("INFO") { _, _ -> run {
                 val packageURI = Uri.parse("package:${app.packageName}")
