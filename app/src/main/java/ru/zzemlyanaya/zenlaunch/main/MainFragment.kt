@@ -1,7 +1,7 @@
 /*
  * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
  * Copyright (c) 2021 . All rights reserved.
- * Last modified 11.03.2021, 21:05
+ * Last modified 13.03.2021, 9:35
  */
 
 package ru.zzemlyanaya.zenlaunch.main
@@ -83,11 +83,11 @@ class MainFragment : Fragment() {
                     if (e1 == null || e2 == null)
                         return super.onFling(e1, e2, velocityX, velocityY)
 
-                    if (e1.x - e2.x > 100 && abs(velocityX) > 200) {
+                    if (e1.x - e2.x > 200 && abs(velocityX) > 200) {
                         // Fling to left
                         (requireActivity() as MainActivity).showRTLApp()
 
-                    } else if (e2.x - e1.x > 100 && abs(velocityX) > 200) {
+                    } else if (e2.x - e1.x > 200 && abs(velocityX) > 200) {
                         // Fling to right
                         (requireActivity() as MainActivity).showLTRApp()
 
@@ -95,7 +95,7 @@ class MainFragment : Fragment() {
                         // Fling down
                         // TODO("handle down gesture")
 
-                    } else if (e1.y - e2.y > 100 && abs(velocityY) > 100){
+                    } else if (e1.y - e2.y > 150 && abs(velocityY) > 100){
                         // Fling up
                         (requireActivity() as MainActivity).showMenuFragment(null)
                     }

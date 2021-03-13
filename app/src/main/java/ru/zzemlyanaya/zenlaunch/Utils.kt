@@ -1,7 +1,7 @@
 /*
  * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
  * Copyright (c) 2021 . All rights reserved.
- * Last modified 11.03.2021, 21:05
+ * Last modified 13.03.2021, 9:35
  */
 
 package ru.zzemlyanaya.zenlaunch
@@ -35,11 +35,11 @@ fun Fragment.showKeyboard() {
 
 fun Context.hideKeyboard(view: View) {
     val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+    imm.hideSoftInputFromWindow(view.windowToken,0)
 }
 fun Context.showKeyboard(view: View) {
     val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0)
+    imm.showSoftInput(view, 0)
 }
 
 /**

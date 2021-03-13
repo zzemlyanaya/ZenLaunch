@@ -1,7 +1,7 @@
 /*
  * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
  * Copyright (c) 2021 . All rights reserved.
- * Last modified 11.03.2021, 21:05
+ * Last modified 13.03.2021, 9:35
  */
 
 package ru.zzemlyanaya.zenlaunch.menu
@@ -81,14 +81,11 @@ class MenuFragment : Fragment() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     if(!recyclerView.canScrollVertically(-1))
                         openKeyboard()
+                    else
+                        closeKeyboard()
                     super.onScrolled(recyclerView, dx, dy)
                 }
 
-                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                    if (newState != RecyclerView.SCROLL_STATE_IDLE)
-                        closeKeyboard()
-                    super.onScrollStateChanged(recyclerView, newState)
-                }
             })
         }
 
@@ -102,8 +99,8 @@ class MenuFragment : Fragment() {
     }
 
     fun openKeyboard(){
-        if (binding.searchApp.hasFocus() || binding.searchApp.requestFocus())
-            this.showKeyboard()
+        if (binding.searchApp.requestFocus())
+            requireContext().showKeyboard(binding.searchApp)
     }
 
     fun closeKeyboard(){
@@ -117,6 +114,7 @@ class MenuFragment : Fragment() {
         val launchIntent =
             requireContext().packageManager.getLaunchIntentForPackage(app.packageName)
         requireActivity().startActivity(launchIntent)
+        parentFragmentManager.popBackStack()
     }
 
     fun openAppDialog(app: AppInfo): Boolean{

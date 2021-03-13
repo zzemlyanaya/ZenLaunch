@@ -1,7 +1,7 @@
 /*
  * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
  * Copyright (c) 2021 . All rights reserved.
- * Last modified 11.03.2021, 21:05
+ * Last modified 13.03.2021, 9:35
  */
 
 package ru.zzemlyanaya.zenlaunch.menu
@@ -51,18 +51,20 @@ open class AppsRecyclerViewAdapter(
 
     fun filter(query: String) {
         val query = query.toLowerCase()
-        var result = ArrayList<AppInfo>()
+        val result = ArrayList<AppInfo>()
         if (query.isBlank())
             result.addAll(copy)
         else
             for (app in copy)
                 if (app.label.toLowerCase().contains(query))
                     result.add(app)
-        (values as ArrayList<AppInfo>).clear()
-        (values as ArrayList<AppInfo>).addAll(result)
         if (result.size == 1)
             onClick.invoke(result.first())
-        notifyDataSetChanged()
+        else {
+            (values as ArrayList<AppInfo>).clear()
+            (values as ArrayList<AppInfo>).addAll(result)
+            notifyDataSetChanged()
+        }
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

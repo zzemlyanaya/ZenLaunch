@@ -2,7 +2,7 @@
 <!--
   ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya)
   ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified 11.03.2021, 21:05
+  ~ Last modified 13.03.2021, 9:35
   -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -31,8 +31,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:fitsSystemWindows="true"
-                android:maxLines="1" />
+                android:inputType="textShortMessage" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/appsRecyclerView"
