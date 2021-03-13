@@ -1,18 +1,20 @@
 /*
  * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
  * Copyright (c) 2021 . All rights reserved.
- * Last modified 11.03.2021, 16:11
+ * Last modified 13.03.2021, 15:12
  */
 
-package ru.zzemlyanaya.zenlaunch
+package ru.zzemlyanaya.zenlaunch.main
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import ru.zzemlyanaya.zenlaunch.App.Companion.prefs
+import ru.zzemlyanaya.zenlaunch.PrefsConst
+import ru.zzemlyanaya.zenlaunch.R
 import ru.zzemlyanaya.zenlaunch.databinding.ActivityMainBinding
-import ru.zzemlyanaya.zenlaunch.main.MainFragment
 import ru.zzemlyanaya.zenlaunch.menu.AppInfo
 import ru.zzemlyanaya.zenlaunch.menu.MenuFragment
 import ru.zzemlyanaya.zenlaunch.settings.SettingsFragment
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     private var customApps = prefs.customApps.get()
     private var ltrApp = prefs.ltrApp.get()
     private var rtlApp = prefs.rtlApp.get()
+    private var isNightMode = prefs.isNightMode.get()
 
     override fun onBackPressed() {
         val fragment = supportFragmentManager.findFragmentById(R.id.container)
@@ -38,6 +41,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+       switchNightMode()
+
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(
             this,
@@ -50,6 +55,19 @@ class MainActivity : AppCompatActivity() {
         binding.textDate.text = date
 
         showMainFragment()
+    }
+
+    private fun switchNightMode(){
+        if (isNightMode)
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        else
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+    }
+
+    fun updateNightMode(){
+        isNightMode = !isNightMode
+        prefs.setPref(PrefsConst.IS_NIGHT_MODE, isNightMode)
+        switchNightMode()
     }
 
     fun showMainFragment(){

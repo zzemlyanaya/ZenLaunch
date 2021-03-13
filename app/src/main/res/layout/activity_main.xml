@@ -2,7 +2,7 @@
 <!--
   ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya)
   ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified 13.03.2021, 10:35
+  ~ Last modified 13.03.2021, 15:12
   -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -16,7 +16,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".main.MainActivity">
 
         <TextClock
                 android:id="@+id/textTime"

@@ -1,7 +1,7 @@
 /*
  * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
  * Copyright (c) 2021 . All rights reserved.
- * Last modified 11.03.2021, 16:11
+ * Last modified 13.03.2021, 15:12
  */
 
 package ru.zzemlyanaya.zenlaunch.settings
@@ -12,11 +12,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentResultListener
 import ru.zzemlyanaya.zenlaunch.*
-import ru.zzemlyanaya.zenlaunch.App.Companion.prefs
 import ru.zzemlyanaya.zenlaunch.databinding.FragmentSettingsBinding
+import ru.zzemlyanaya.zenlaunch.main.MainActivity
 
 class SettingsFragment : Fragment() {
     private lateinit var binding: FragmentSettingsBinding

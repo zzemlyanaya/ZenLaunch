@@ -2,7 +2,7 @@
 <!--
   ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya)
   ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified 11.02.2021, 9:42
+  ~ Last modified 13.03.2021, 15:12
   -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -72,29 +72,15 @@
                 android:layout_marginTop="24dp" />
 
         <TextView
-                android:text="@string/custom_apps"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/editAppsNumber"
-                app:layout_constraintStart_toStartOf="@+id/editAccentColour"
-                app:layout_constraintEnd_toEndOf="@+id/editAccentColour"
-                android:textSize="22sp"
-                android:fontFamily="sans-serif-thin"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintTop_toBottomOf="@+id/editAccentColour"
-                android:layout_marginTop="24dp" />
-
-        <TextView
                 android:text="@string/about"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/about"
-                app:layout_constraintStart_toStartOf="@+id/editAppsNumber"
-                app:layout_constraintEnd_toEndOf="@+id/editAppsNumber"
                 android:textSize="22sp"
                 android:fontFamily="sans-serif-thin"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintTop_toBottomOf="@+id/editAppsNumber"
+                app:layout_constraintStart_toStartOf="@+id/editAccentColour"
+                app:layout_constraintEnd_toEndOf="@+id/editAccentColour"
+                app:layout_constraintTop_toBottomOf="@+id/editAccentColour"
                 android:layout_marginTop="24dp" />
 
         <TextView

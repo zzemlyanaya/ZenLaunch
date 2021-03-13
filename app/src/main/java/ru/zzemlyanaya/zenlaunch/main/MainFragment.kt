@@ -1,7 +1,7 @@
 /*
  * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
  * Copyright (c) 2021 . All rights reserved.
- * Last modified 13.03.2021, 9:35
+ * Last modified 13.03.2021, 15:12
  */
 
 package ru.zzemlyanaya.zenlaunch.main
@@ -11,13 +11,11 @@ import android.view.*
 import android.view.GestureDetector.SimpleOnGestureListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import ru.zzemlyanaya.zenlaunch.MainActivity
 import ru.zzemlyanaya.zenlaunch.PrefsConst
 import ru.zzemlyanaya.zenlaunch.R
 import ru.zzemlyanaya.zenlaunch.RESULT
 import ru.zzemlyanaya.zenlaunch.databinding.FragmentMainBinding
 import ru.zzemlyanaya.zenlaunch.menu.AppInfo
-import java.util.stream.IntStream.range
 import kotlin.math.abs
 
 
@@ -68,6 +66,11 @@ class MainFragment : Fragment() {
                 override fun onLongPress(e: MotionEvent?) {
                     (requireActivity() as MainActivity).showSettingsFragment()
                     return super.onLongPress(e)
+                }
+
+                override fun onDoubleTap(e: MotionEvent?): Boolean {
+                    (requireActivity() as MainActivity).updateNightMode()
+                    return super.onDoubleTap(e)
                 }
 
                 override fun onDown(e: MotionEvent?): Boolean {
