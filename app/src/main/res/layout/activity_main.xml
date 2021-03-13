@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya) on $file.created
+  ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya)
   ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified $file.lasModified
+  ~ Last modified 13.03.2021, 10:35
   -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -28,7 +28,6 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="sans-serif-light"
                 android:text="@string/time_mockup"
-                android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +42,6 @@
                 android:layout_marginEnd="32dp"
                 android:fontFamily="sans-serif-light"
                 android:text="@string/date_mockup"
-                android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

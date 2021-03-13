@@ -2,11 +2,13 @@
 <!--
   ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya)
   ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified 11.03.2021, 21:05
+  ~ Last modified 13.03.2021, 10:35
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ru.zzemlyanaya.zenlaunch">
+
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES"/>
 
     <application
             android:name=".App"

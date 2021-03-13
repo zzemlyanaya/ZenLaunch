@@ -1,30 +1,23 @@
 /*
  * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
  * Copyright (c) 2021 . All rights reserved.
- * Last modified 13.03.2021, 9:35
+ * Last modified 13.03.2021, 10:35
  */
 
 package ru.zzemlyanaya.zenlaunch.menu
 
-import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
-import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
-import android.widget.ArrayAdapter
-import androidx.appcompat.widget.SearchView
-import androidx.core.content.ContextCompat.getSystemService
+import androidx.appcompat.app.AlertDialog
 import androidx.core.os.bundleOf
-import androidx.core.widget.doAfterTextChanged
-import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentResultListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.zzemlyanaya.zenlaunch.*
@@ -118,7 +111,24 @@ class MenuFragment : Fragment() {
     }
 
     fun openAppDialog(app: AppInfo): Boolean{
-
+        val builder = AlertDialog.Builder(layoutInflater.context)
+        builder.setTitle(app.label)
+            .setPositiveButton("INFO") { _, _ -> run {
+                val packageURI = Uri.parse("package:${app.packageName}")
+                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, packageURI).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }
+                startActivity(intent)
+            } }
+            .setNegativeButton("DELETE") { _, _ -> run {
+                val packageURI = Uri.parse("package:${app.packageName}")
+                val intent = Intent(Intent.ACTION_DELETE, packageURI).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }
+                startActivity(intent)
+            } }
+            .create()
+            .show()
         return true
     }
 

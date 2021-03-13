@@ -2,7 +2,7 @@
 <!--
   ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya)
   ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified 13.03.2021, 9:35
+  ~ Last modified 13.03.2021, 10:35
   -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,12 +26,12 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="32dp"
                 android:fontFamily="sans-serif-light"
-                android:textColor="@color/white"
                 android:textSize="32sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:inputType="textShortMessage" />
+                android:inputType="textShortMessage"
+                android:background="@null" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/appsRecyclerView"
