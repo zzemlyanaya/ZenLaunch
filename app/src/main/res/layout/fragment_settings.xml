@@ -2,7 +2,7 @@
 <!--
   ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya)
   ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified 13.03.2021, 15:12
+  ~ Last modified 19.03.2021, 19:18
   -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -27,7 +27,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="24dp"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:fontFamily="sans-serif-thin"
                 app:layout_constraintTop_toBottomOf="@+id/textView3"
                 android:layout_marginTop="32dp" />
@@ -39,7 +39,7 @@
                 android:id="@+id/editLtrApp"
                 app:layout_constraintStart_toStartOf="@+id/editFontSize"
                 app:layout_constraintEnd_toEndOf="@+id/editFontSize"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:fontFamily="sans-serif-thin"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintTop_toBottomOf="@+id/editFontSize"
@@ -52,7 +52,7 @@
                 android:id="@+id/editRtlApp"
                 app:layout_constraintStart_toStartOf="@+id/editLtrApp"
                 app:layout_constraintEnd_toEndOf="@+id/editLtrApp"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:fontFamily="sans-serif-thin"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintTop_toBottomOf="@+id/editLtrApp"
@@ -64,19 +64,18 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/editAccentColour"
                 app:layout_constraintStart_toStartOf="@+id/editRtlApp"
-                app:layout_constraintEnd_toEndOf="@+id/editRtlApp"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:fontFamily="sans-serif-thin"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintTop_toBottomOf="@+id/editRtlApp"
-                android:layout_marginTop="24dp" />
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="@+id/editRtlApp" />
 
         <TextView
-                android:text="@string/about"
+                android:text="@string/about_label"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/about"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:fontFamily="sans-serif-thin"
                 app:layout_constraintStart_toStartOf="@+id/editAccentColour"
                 app:layout_constraintEnd_toEndOf="@+id/editAccentColour"

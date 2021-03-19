@@ -1,18 +1,22 @@
 /*
  * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
  * Copyright (c) 2021 . All rights reserved.
- * Last modified 13.03.2021, 9:35
+ * Last modified 19.03.2021, 19:18
  */
 
 package ru.zzemlyanaya.zenlaunch.menu
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
+import ru.zzemlyanaya.zenlaunch.Accents
 import ru.zzemlyanaya.zenlaunch.App
+import ru.zzemlyanaya.zenlaunch.App.Companion.prefs
 import ru.zzemlyanaya.zenlaunch.R
 import java.util.*
 import kotlin.collections.ArrayList
@@ -25,6 +29,7 @@ open class AppsRecyclerViewAdapter(
 ) : RecyclerView.Adapter<AppsRecyclerViewAdapter.ViewHolder>() {
 
     private val copy = ArrayList<AppInfo>()
+    private val accent = prefs.accent.get()
 
     init {
         copy.addAll(values)
@@ -42,6 +47,8 @@ open class AppsRecyclerViewAdapter(
             holder.label.text = "${item.label.slice(0..16)}..."
         else
             holder.label.text = item.label
+        holder.label.setTextColor(Color.parseColor(accent))
+
         holder.itemView.setOnClickListener { onClick(item) }
         if (onLongClick != null)
             holder.itemView.setOnLongClickListener { onLongClick.invoke(item)}

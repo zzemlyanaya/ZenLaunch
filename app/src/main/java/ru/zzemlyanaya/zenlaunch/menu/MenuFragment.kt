@@ -1,7 +1,7 @@
 /*
  * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
  * Copyright (c) 2021 . All rights reserved.
- * Last modified 13.03.2021, 10:46
+ * Last modified 19.03.2021, 19:18
  */
 
 package ru.zzemlyanaya.zenlaunch.menu
@@ -36,6 +36,11 @@ class MenuFragment : Fragment() {
             requestKey = it.getString(REQUEST_KEY)
         }
 
+        setUpAppList()
+    }
+
+    private fun setUpAppList(){
+        appList.clear()
         val packageManager: PackageManager = requireContext().packageManager
 
         val i = Intent(Intent.ACTION_MAIN, null)
@@ -113,23 +118,33 @@ class MenuFragment : Fragment() {
     fun openAppDialog(app: AppInfo): Boolean{
         val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle)
         builder.setTitle(app.label)
-            .setPositiveButton("INFO") { _, _ -> run {
-                val packageURI = Uri.parse("package:${app.packageName}")
-                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, packageURI).apply {
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                }
-                startActivity(intent)
-            } }
-            .setNegativeButton("DELETE") { _, _ -> run {
-                val packageURI = Uri.parse("package:${app.packageName}")
-                val intent = Intent(Intent.ACTION_DELETE, packageURI).apply {
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                }
-                startActivity(intent)
-            } }
+            .setPositiveButton("INFO") { _, _ -> run { showAppInfo(app) } }
+            .setNegativeButton("DELETE") { _, _ -> run { deleteApp(app) } }
             .create()
             .show()
         return true
+    }
+
+    private fun showAppInfo(app: AppInfo){
+        val packageURI = Uri.parse("package:${app.packageName}")
+        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, packageURI).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+        startActivity(intent)
+    }
+
+    private fun deleteApp(app: AppInfo){
+        val packageURI = Uri.parse("package:${app.packageName}")
+        val intent = Intent(Intent.ACTION_DELETE, packageURI).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+        startActivity(intent)
+        setUpAppList()
+        binding.appsRecyclerView.adapter =  AppsRecyclerViewAdapter(
+            { openApp(it) },
+            { openAppDialog(it) },
+            appList.toList()
+        )
     }
 
     private fun sendResult(app: AppInfo) {

@@ -1,7 +1,7 @@
 <!--
   ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya)
   ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified 13.03.2021, 10:46
+  ~ Last modified 19.03.2021, 19:18
   -->
 
 <resources>
@@ -10,6 +10,7 @@
         <item name="colorOnPrimary">@color/black</item>
         <item name="colorSecondary">@color/white</item>
         <item name="colorOnSecondary">@color/black</item>
+        <item name="android:textColorLink">@color/black</item>
 
         <item name="android:textColor">@color/black</item>
         <item name="android:textColorPrimary">@color/black</item>
@@ -22,6 +23,16 @@
         <item name="android:windowDrawsSystemBarBackgrounds">false</item>
 
         <item name="android:searchViewStyle">@style/AppSearchView</item>
+    </style>
+
+    <style name="SmallText" >
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="MediumText" >
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="LargeText" >
+        <item name="android:textSize">28sp</item>
     </style>
 
     <style name="AppSearchView" parent="Widget.AppCompat.Light.SearchView" >

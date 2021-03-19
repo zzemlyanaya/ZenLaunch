@@ -1,7 +1,7 @@
 /*
  * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
  * Copyright (c) 2021 . All rights reserved.
- * Last modified 13.03.2021, 9:35
+ * Last modified 19.03.2021, 19:18
  */
 
 package ru.zzemlyanaya.zenlaunch
@@ -15,9 +15,9 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 
-enum class Accents(val id: Int) {
-    MINT(0),
-    FIRE_RED(1)
+enum class Accents(val id: String) {
+    MINT("#4DFFB4"),
+    FIRE_RED("#EF1B0D")
 }
 
 enum class FontSizes { SMALL, MEDIUM, LARGE }
