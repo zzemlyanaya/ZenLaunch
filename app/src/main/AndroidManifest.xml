@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya)
-  ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified 13.03.2021, 15:12
+  ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya), ZZen Studio
+  ~  Copyright (c) 2021 . All rights reserved.
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.zzemlyanaya.zenlaunch">
+    package="ru.zzenstudio.zenlaunch">
 
     <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES"/>
 
     <application
             android:name=".App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_z"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_z"
         android:supportsRtl="true"
         android:theme="@style/Theme.ZenLaunch"
         android:fullBackupContent="@xml/backup_rules">

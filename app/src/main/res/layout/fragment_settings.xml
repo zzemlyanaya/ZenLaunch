@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya)
-  ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified 19.03.2021, 19:18
+  ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya), ZZen Studio
+  ~  Copyright (c) 2021 . All rights reserved.
   -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -19,31 +18,17 @@
         tools:context=".settings.SettingsFragment">
 
         <TextView
-                android:text="@string/edit_font_size"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/editFontSize"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="24dp"
-                android:textSize="20sp"
-                android:fontFamily="sans-serif-thin"
-                app:layout_constraintTop_toBottomOf="@+id/textView3"
-                android:layout_marginTop="32dp" />
-
-        <TextView
                 android:text="@string/set_left_to_right_app"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/editLtrApp"
-                app:layout_constraintStart_toStartOf="@+id/editFontSize"
-                app:layout_constraintEnd_toEndOf="@+id/editFontSize"
+                app:layout_constraintStart_toStartOf="@+id/textView3"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-thin"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintTop_toBottomOf="@+id/editFontSize"
-                android:layout_marginTop="24dp" />
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="24dp" />
 
         <TextView
                 android:text="@string/set_right_to_left_app"

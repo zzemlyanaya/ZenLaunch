@@ -1,24 +1,18 @@
 /*
- * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 19.03.2021, 19:18
+ * Created by Evgeniya Zemlyanaya (@zzemlyanaya), ZZen Studio
+ *  Copyright (c) 2021 . All rights reserved.
  */
 
-package ru.zzemlyanaya.zenlaunch.menu
+package ru.zzenstudio.zenlaunch.menu
 
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
-import ru.zzemlyanaya.zenlaunch.Accents
-import ru.zzemlyanaya.zenlaunch.App
-import ru.zzemlyanaya.zenlaunch.App.Companion.prefs
-import ru.zzemlyanaya.zenlaunch.R
-import java.util.*
+import ru.zzenstudio.zenlaunch.App.Companion.prefs
+import ru.zzenstudio.zenlaunch.R
 import kotlin.collections.ArrayList
 
 

@@ -1,28 +1,25 @@
 /*
- * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 19.03.2021, 19:18
+ * Created by Evgeniya Zemlyanaya (@zzemlyanaya), ZZen Studio
+ *  Copyright (c) 2021 . All rights reserved.
  */
 
-package ru.zzemlyanaya.zenlaunch.settings
+package ru.zzenstudio.zenlaunch.settings
 
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import ru.zzemlyanaya.zenlaunch.*
-import ru.zzemlyanaya.zenlaunch.App.Companion.prefs
-import ru.zzemlyanaya.zenlaunch.databinding.FragmentSettingsBinding
-import ru.zzemlyanaya.zenlaunch.main.MainActivity
+import ru.zzenstudio.zenlaunch.*
+import ru.zzenstudio.zenlaunch.App.Companion.prefs
+import ru.zzenstudio.zenlaunch.databinding.FragmentSettingsBinding
+import ru.zzenstudio.zenlaunch.main.MainActivity
 
 class SettingsFragment : Fragment() {
     private lateinit var binding: FragmentSettingsBinding
     private var accent = prefs.accent.get()
-    private var fontSize = prefs.fontSize.get()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,8 +33,6 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_settings, container, false)
-
-        binding.editFontSize.text = "${getString(R.string.edit_font_size)} small"
 
         binding.editLtrApp.setOnClickListener {
             setResultListener(PrefsConst.LTR_APP)
@@ -72,14 +67,6 @@ class SettingsFragment : Fragment() {
        binding.about.setOnClickListener { (requireActivity() as MainActivity).showAboutFragment() }
 
         return binding.root
-    }
-
-    private fun getFontSize(): String {
-        return when(fontSize) {
-            FontSizes.SMALL.name -> "20sp"
-            FontSizes.MEDIUM.name -> "24sp"
-            else -> "28sp"
-        }
     }
 
     private fun setResultListener(pref: String) {

@@ -1,15 +1,14 @@
 /*
- * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 19.03.2021, 19:18
+ * Created by Evgeniya Zemlyanaya (@zzemlyanaya), ZZen Studio
+ *  Copyright (c) 2021 . All rights reserved.
  */
 
-package ru.zzemlyanaya.zenlaunch
+package ru.zzenstudio.zenlaunch
 
 import com.kryptoprefs.context.KryptoContext
 import com.kryptoprefs.gson.json
 import com.kryptoprefs.preferences.KryptoPrefs
-import ru.zzemlyanaya.zenlaunch.menu.AppInfo
+import ru.zzenstudio.zenlaunch.menu.AppInfo
 
 object PrefsConst {
     const val PREFS_NAME = "ZenLaunchPrefs"
@@ -17,7 +16,6 @@ object PrefsConst {
     const val LTR_APP = "left to right app"
     const val RTL_APP = "right to left app"
     const val ACCENT = "accent"
-    const val FONT_SIZE = "font size"
     const val IS_NIGHT_MODE = "is night mode"
 }
 
@@ -28,7 +26,6 @@ class Prefs(prefs: KryptoPrefs): KryptoContext(prefs) {
     val ltrApp = json(PrefsConst.LTR_APP, AppInfo(),true)
     val rtlApp = json(PrefsConst.RTL_APP, AppInfo(),true)
     val accent = string(PrefsConst.ACCENT, Accents.MINT.id, true)
-    val fontSize = string(PrefsConst.FONT_SIZE, FontSizes.SMALL.name, true)
     val isNightMode = boolean(PrefsConst.IS_NIGHT_MODE, false, true)
 
     fun setPref(key: String, value: Any){
@@ -37,7 +34,6 @@ class Prefs(prefs: KryptoPrefs): KryptoContext(prefs) {
             PrefsConst.LTR_APP -> ltrApp.put(value as AppInfo)
             PrefsConst.RTL_APP -> rtlApp.put(value as AppInfo)
             PrefsConst.ACCENT -> accent.put(value as String)
-            PrefsConst.FONT_SIZE -> fontSize.put(value as String)
             PrefsConst.IS_NIGHT_MODE -> isNightMode.put(value as Boolean)
             else -> throw Exception("Unknown pref!")
         }

@@ -1,17 +1,16 @@
 /*
- * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 19.03.2021, 19:18
+ * Created by Evgeniya Zemlyanaya (@zzemlyanaya), ZZen Studio
+ *  Copyright (c) 2021 . All rights reserved.
  */
 
-package ru.zzemlyanaya.zenlaunch.settings
+package ru.zzenstudio.zenlaunch.settings
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ru.zzemlyanaya.zenlaunch.R
+import ru.zzenstudio.zenlaunch.R
 
 class AboutFragment : Fragment() {
 

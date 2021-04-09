@@ -1,10 +1,9 @@
 /*
- * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 19.03.2021, 19:18
+ * Created by Evgeniya Zemlyanaya (@zzemlyanaya), ZZen Studio
+ *  Copyright (c) 2021 . All rights reserved.
  */
 
-package ru.zzemlyanaya.zenlaunch
+package ru.zzenstudio.zenlaunch
 
 import android.app.Activity
 import android.content.Context

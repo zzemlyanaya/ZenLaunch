@@ -1,10 +1,9 @@
 /*
- * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 19.03.2021, 19:18
+ * Created by Evgeniya Zemlyanaya (@zzemlyanaya), ZZen Studio
+ *  Copyright (c) 2021 . All rights reserved.
  */
 
-package ru.zzemlyanaya.zenlaunch.menu
+package ru.zzenstudio.zenlaunch.menu
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -20,8 +19,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.zzemlyanaya.zenlaunch.*
-import ru.zzemlyanaya.zenlaunch.databinding.FragmentMenuBinding
+import ru.zzenstudio.zenlaunch.*
+import ru.zzenstudio.zenlaunch.databinding.FragmentMenuBinding
 
 
 class MenuFragment : Fragment() {

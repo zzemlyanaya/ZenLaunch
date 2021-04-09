@@ -1,7 +1,6 @@
 <!--
-  ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya)
-  ~ Copyright (c) 2021 . All rights reserved.
-  ~ Last modified 19.03.2021, 19:18
+  ~ Created by Evgeniya Zemlyanaya (@zzemlyanaya), ZZen Studio
+  ~  Copyright (c) 2021 . All rights reserved.
   -->
 
 <resources>
@@ -13,10 +12,6 @@
     <string name="no_default_alarm">Cannot detect default alarm app. Set one?</string>
 
     <string name="settings">Settings</string>
-    <string name="edit_font_size">Font size: </string>
-    <string name="font_size_small">small</string>
-    <string name="font_size_medium">medium</string>
-    <string name="font_size_Large">large</string>
     <string name="set_left_to_right_app">Left-to-right app</string>
     <string name="set_right_to_left_app">Right-to-left app</string>
     <string name="about_label">About</string>

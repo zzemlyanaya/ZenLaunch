@@ -1,21 +1,20 @@
 /*
- * Created by Evgeniya Zemlyanaya (@zzemlyanaya)
- * Copyright (c) 2021 . All rights reserved.
- * Last modified 13.03.2021, 15:12
+ * Created by Evgeniya Zemlyanaya (@zzemlyanaya), ZZen Studio
+ *  Copyright (c) 2021 . All rights reserved.
  */
 
-package ru.zzemlyanaya.zenlaunch.main
+package ru.zzenstudio.zenlaunch.main
 
 import android.os.Bundle
 import android.view.*
 import android.view.GestureDetector.SimpleOnGestureListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import ru.zzemlyanaya.zenlaunch.PrefsConst
-import ru.zzemlyanaya.zenlaunch.R
-import ru.zzemlyanaya.zenlaunch.RESULT
-import ru.zzemlyanaya.zenlaunch.databinding.FragmentMainBinding
-import ru.zzemlyanaya.zenlaunch.menu.AppInfo
+import ru.zzenstudio.zenlaunch.PrefsConst
+import ru.zzenstudio.zenlaunch.RESULT
+import ru.zzenstudio.zenlaunch.menu.AppInfo
+import ru.zzenstudio.zenlaunch.R
+import ru.zzenstudio.zenlaunch.databinding.FragmentMainBinding
 import kotlin.math.abs
 
 
