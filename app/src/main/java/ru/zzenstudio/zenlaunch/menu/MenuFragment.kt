@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.zzenstudio.zenlaunch.*
 import ru.zzenstudio.zenlaunch.databinding.FragmentMenuBinding
+import ru.zzenstudio.zenlaunch.main.MainActivity
 
 
 class MenuFragment : Fragment() {
@@ -108,10 +109,10 @@ class MenuFragment : Fragment() {
     }
 
     fun openApp(app: AppInfo){
+        parentFragmentManager.popBackStack()
         val launchIntent =
             requireContext().packageManager.getLaunchIntentForPackage(app.packageName)
         requireActivity().startActivity(launchIntent)
-        parentFragmentManager.popBackStack()
     }
 
     fun openAppDialog(app: AppInfo): Boolean{
