@@ -44,12 +44,12 @@ class MenuFragment : Fragment() {
 
         val i = Intent(Intent.ACTION_MAIN, null)
         i.addCategory(Intent.CATEGORY_LAUNCHER)
-
         val allApps = packageManager.queryIntentActivities(i, 0)
-        for (resolveInfo in allApps) {
+
+        for (appInfo in allApps) {
             val app = AppInfo(
-                resolveInfo.loadLabel(packageManager).toString(),
-                resolveInfo.activityInfo.packageName
+                appInfo.loadLabel(packageManager).toString(),
+                appInfo.activityInfo.packageName
             )
             appList.add(app)
         }
@@ -115,6 +115,7 @@ class MenuFragment : Fragment() {
     }
 
     fun openAppDialog(app: AppInfo): Boolean{
+        closeKeyboard()
         val builder = AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle)
         builder.setTitle(app.label)
             .setPositiveButton("INFO") { _, _ -> run { showAppInfo(app) } }

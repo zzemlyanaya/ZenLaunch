@@ -150,13 +150,12 @@ class MainFragment : Fragment() {
     }
 
     companion object {
-
-        @JvmStatic
-        fun newInstance(customAppsNames: ArrayList<String>) =
-                MainFragment().apply {
-                    arguments = Bundle().apply {
-                        putStringArrayList(PrefsConst.CUSTOM_APPS, customAppsNames)
-                    }
-                }
+    @JvmStatic
+    fun newInstance(customAppsNames: ArrayList<String>) =
+        MainFragment().apply {
+            arguments = Bundle().apply {
+                putStringArrayList(PrefsConst.CUSTOM_APPS, customAppsNames)
+            }
+        }
     }
 }

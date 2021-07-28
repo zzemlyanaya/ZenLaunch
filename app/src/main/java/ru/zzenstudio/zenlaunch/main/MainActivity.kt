@@ -8,10 +8,13 @@ package ru.zzenstudio.zenlaunch.main
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.AlarmClock
 import android.provider.CalendarContract
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.app.AlarmManagerCompat
+import androidx.core.app.NotificationCompat
 import androidx.databinding.DataBindingUtil
 import ru.zzenstudio.zenlaunch.App.Companion.prefs
 import ru.zzenstudio.zenlaunch.PrefsConst
@@ -21,6 +24,7 @@ import ru.zzenstudio.zenlaunch.menu.AppInfo
 import ru.zzenstudio.zenlaunch.menu.MenuFragment
 import ru.zzenstudio.zenlaunch.settings.AboutFragment
 import ru.zzenstudio.zenlaunch.settings.SettingsFragment
+import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -67,6 +71,13 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(Intent.ACTION_VIEW, calendarUri).apply { flags = Intent.FLAG_ACTIVITY_NEW_TASK })
             }
         }
+        with(binding.textTime) {
+            text = time
+            setOnClickListener {
+                startActivity(packageManager.getLaunchIntentForPackage("com.android.deskclock"))
+            }
+        }
+
         showMainFragment()
     }
 
@@ -124,6 +135,7 @@ class MainActivity : AppCompatActivity() {
                 this@MainActivity.packageManager.getLaunchIntentForPackage(rtlApp.packageName)
             this@MainActivity.startActivity(launchIntent)
         }
+        onBackPressed()
     }
 
     fun showLTRApp(){
@@ -132,6 +144,7 @@ class MainActivity : AppCompatActivity() {
                 this@MainActivity.packageManager.getLaunchIntentForPackage(ltrApp.packageName)
             this@MainActivity.startActivity(launchIntent)
         }
+        onBackPressed()
     }
 
     fun showCustomApp(id: Int) {
@@ -140,6 +153,7 @@ class MainActivity : AppCompatActivity() {
                 this@MainActivity.packageManager.getLaunchIntentForPackage(customApps[id].packageName)
             this@MainActivity.startActivity(launchIntent)
         }
+        onBackPressed()
     }
 
     fun updateApps(whatToUpdate: String, value: Any, id: Int?) {
