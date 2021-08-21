@@ -13,6 +13,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.zzenstudio.zenlaunch.App.Companion.prefs
 import ru.zzenstudio.zenlaunch.R
+import java.util.*
 import kotlin.collections.ArrayList
 
 
@@ -51,13 +52,13 @@ open class AppsRecyclerViewAdapter(
     override fun getItemCount(): Int = values.size
 
     fun filter(query: String) {
-        val query = query.toLowerCase()
+        val query = query.lowercase(Locale.getDefault())
         val result = ArrayList<AppInfo>()
         if (query.isBlank())
             result.addAll(copy)
         else
             for (app in copy)
-                if (app.label.toLowerCase().contains(query))
+                if (app.label.lowercase(Locale.getDefault()).contains(query))
                     result.add(app)
         if (result.size == 1)
             onClick.invoke(result.first())

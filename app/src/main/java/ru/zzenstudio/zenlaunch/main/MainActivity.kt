@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
         switchNightMode()
     }
 
-    fun showMainFragment(){
+    private fun showMainFragment(){
         supportFragmentManager.beginTransaction()
             //.setTransition()
             .replace(R.id.container,
